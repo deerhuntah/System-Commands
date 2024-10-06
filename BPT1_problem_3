@@ -1,3 +1,27 @@
+───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: /opt/se2001/BPT1_problem_3/README.md
+───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ You are given two text files, `file1.txt` and `file2.txt` in the `/opt/assets/` directory, each containing a li
+       │ st of names of world rivers (one name per line) in current working directory. Write two sequential commands in
+       │ a file `script.sh` and make it executable such that the script will do the following
+   2   │
+   3   │     1. Display the differences between them in a unified format.
+   4   │
+   5   │     2. Print the names that are common to both files.
+   6   │
+   7   │ **Hint**
+   8   │
+   9   │ - **Use appropriate flags/options present in the following commands. Please use man pages or --help flag to und
+       │ erstand what each flag do.**
+  10   │
+  11   │ - **Use `diff`**: Compare the two files and display the differences between them in a unified format.
+  12   │
+  13   │ - **Use**  `comm`: can be used for the following
+  14   │     - Names that are common to both files.
+  15   │
+───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+SOLUTION:
+
 #!/bin/bash
 
 diff -u /opt/assets/file1.txt /opt/assets/file2.txt
