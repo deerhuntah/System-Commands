@@ -1,0 +1,25 @@
+# Step 1: Create Directories
+mkdir project
+mkdir -p project/src/{module1,module2}/{include,lib}
+mkdir -p project/docs/{api,manual}
+mkdir project/bin
+
+# Step 2: Create Files
+touch project/src/module1/include/module1.h
+touch project/src/module1/lib/module1.so
+touch project/src/module2/include/module2.h
+touch project/src/module2/lib/module2.so
+
+# Step 3: Create Hard Links
+ln project/src/module1/include/module1.h project/bin/module1_hardlink.h
+ln project/src/module2/lib/module2.so project/bin/module2_hardlink.so
+
+# Step 4: Create Symbolic Link
+ln -s docs project/docs_link
+ln -s ../../module1/lib/module1.so project/src/module2/lib/module1_symlink.so
+
+# Step 5: Modify Permissions
+chmod 755 project
+find project/src -type d -exec chmod 700 {} +
+find project -type f -name "*.h" -exec chmod 644 {} +
+find project -type f -name "*.so" -exec chmod 755 {} +
