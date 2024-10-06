@@ -1,0 +1,35 @@
+│ File: /opt/se2001/BPT1_problem_4/README.md
+───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ Please use the nslookup command (on powershell or linux on your local system) to identify the IP addresses asso
+       │ ciated with the following websites. After obtaining the IP addresses, enter each one into a browser to check if
+       │  it directs you to the corresponding website. For each website, print the result using the echo command: if the
+       │  website is successfully reached using the IP address, print "www.website.com Yes", otherwise print "www.websit
+       │ e.com No". Perform these steps for each website sequentially:
+   2   │
+   3   │ www.google.com
+   4   │ www.yahoo.com
+   5   │ www.duckduckgo.com
+   6   │ www.youtube.com
+   7   │ www.aws.amazon.com
+   8   │
+   9   │ Create a file with name `script.sh` which contains the `echo` commands sequentially.
+  10   │
+  11   │ Hint:
+  12   │
+  13   │ You can use the nslookup command for DNS lookup.
+  14   │
+  15   │ What is DNS and Why Perform a DNS Lookup?: The Domain Name System (DNS) translates human-readable domain names
+       │ (like www.example.com) into IP addresses (like 93.184.216.34). DNS is crucial because it allows users to access
+       │  websites using domain names instead of remembering complex IP addresses. A DNS lookup retrieves the IP address
+       │  associated with a domain name, which is essential for network troubleshooting and ensuring that domain names a
+       │ re correctly mapped to their respective IP addresses.
+
+SOLUTION :
+
+#!/bin/bash
+
+echo "www.google.com Yes"
+echo "www.yahoo.com No"
+echo "www.duckduckgo.com Yes"
+echo "www.youtube.com No"
+echo "www.aws.amazon.com No"
