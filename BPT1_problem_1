@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Base directory
+base_dir=~/se2001/BPT1_problem_1
+
+# Loop through each department
+for dept in Dept1 Dept2 Dept3 Dept4 Dept5; do
+  # Loop through each team within the department
+  for team in TeamA TeamB TeamC; do
+    # Define the team directory
+    team_dir="$base_dir/$dept/$team"
+
+    # Create the team directory if it doesn't exist
+    mkdir -p "$team_dir"
+
+    # Create empty project files from project1 to project10
+    for project_num in {1..10}; do
+      touch "$team_dir/project$project_num"
+    done
+  done
+done
