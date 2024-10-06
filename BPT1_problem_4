@@ -22,7 +22,7 @@
        │ bleshooting and ensuring that domain names are correctly mapped to their respective IP addresses.
 ───────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-SOLUTION :
+SOLUTION:
 
 #!/bin/bash
 
