@@ -1,3 +1,48 @@
+───────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: /opt/se2001/BPT1_problem_2/README.md
+───────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ Please use your knowledge of the commands like `mkdir`, `touch`, `ln` etc. to achieve the following directory structure in the current working directory by running the commands (not a script).
+   2   │
+   3   │ 1. **Create Directories**:
+   4   │
+   5   │     - Create a base directory called `project`.
+   6   │     - Within `project`, create the following subdirectories using brace expansion:
+   7   │         - `src/{module1,module2}/{include,lib}`
+   8   │         - `docs/{api,manual}`
+   9   │     - Create a directory `bin` within `project`.
+  10   │
+  11   │
+  12   │ 2. **Create Files**:
+  13   │
+  14   │     - Inside `src/module1/include`, create an empty file named `module1.h`.
+  15   │     - Inside `src/module1/lib`, create an empty file named `module1.so`.
+  16   │     - Inside `src/module2/include`, create an empty file named `module2.h`.
+  17   │     - Inside `src/module2/lib`, create an empty file named `module2.so`.
+  18   │
+  19   │
+  20   │ 3. **Create Hard Links**:
+  21   │
+  22   │     - Create a hard link to `module1.h` in the `bin` directory and name it `module1_hardlink.h`.
+  23   │     - Create a hard link to `module2.so` in the `bin` directory and name it `module2_hardlink.so`.
+  24   │
+  25   │
+  26   │ 4. **Create Soft Links**:
+  27   │
+  28   │     - Create a soft link to the `docs` directory in the `project` directory and name it `documentation`.
+  29   │     - Create a soft link to `module1.so` inside `module2/lib` directory and name it `module1_symlink.so`.
+  30   │
+  31   │
+  32   │ 5. **Modify Permissions**:
+  33   │
+  34   │     - Set the permission of `project` directory to `755`.
+  35   │     - Set the permission of all directories under `project/src` to `700`.
+  36   │     - Set the permission of all `.h` files to `644`.
+  37   │     - Set the permission of all `.so` files to `755`.
+  38   │
+───────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+SOLUTION:
+
 # Step 1: Create Directories
 mkdir project
 mkdir -p project/src/{module1,module2}/{include,lib}
@@ -14,9 +59,10 @@ touch project/src/module2/lib/module2.so
 ln project/src/module1/include/module1.h project/bin/module1_hardlink.h
 ln project/src/module2/lib/module2.so project/bin/module2_hardlink.so
 
-# Step 4: Create Symbolic Link
-ln -s docs project/docs_link
-ln -s ../../module1/lib/module1.so project/src/module2/lib/module1_symlink.so
+# Step 4: Create Soft Links Using Absolute Paths
+PROJECT_PATH=$(pwd)/project
+ln -s "${PROJECT_PATH}/docs" "${PROJECT_PATH}/documentation"
+ln -s "${PROJECT_PATH}/src/module1/lib/module1.so" "${PROJECT_PATH}/src/module2/lib/module1_symlink.so"
 
 # Step 5: Modify Permissions
 chmod 755 project
